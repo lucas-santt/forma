@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*
+  Recreation of Apple's Liquid Glass effect using HTML and CSS combined with a SVG filter.
+  Based on https://github.com/lucasromerodb/liquid-glass-effect-macos but tweaked after my liking.
+*/
+
+.liquid-glass {
+  width: auto;
+  height: auto;
+  position: relative;
+  padding: 0.5rem 1rem;
+  border-radius: 100vmax;
+  isolation: isolate;
+  background-color: rgb(255 255 255 / 10%);
+  color: rgb(255 255 255 / 90%);
+  text-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  font-family: "Open Sans", "Roboto", sans-serif;
+  font-size: .875rem;
+  box-shadow: 0 6px 6px rgb(0 0 0 / 20%), 0 0 20px rgb(0 0 0 / 10%);
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+  
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+  
+  &::before {
+    backdrop-filter: blur(10px);
+    filter: url(#glass-distortion);
+    z-index: -1;
+  }
+  
+}
+
+.liquid-glass--white{
+    background-color: rgb(255 255 255 / 100%);
+    color: black;
+
+    &::before {
+        backdrop-filter: none;
+    }
+}

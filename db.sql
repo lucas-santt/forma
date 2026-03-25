@@ -15,7 +15,7 @@ CREATE TABLE archive (
 
 CREATE TABLE elemento (
     elemento_id INTEGER PRIMARY KEY,
-    titule TEXT NOT NULL,
+    titulo TEXT NOT NULL,
     conteudo_texto TEXT,
     imagem_caminho TEXT,
     citation_id INTEGER,
@@ -25,3 +25,13 @@ CREATE TABLE elemento (
     FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id),
     FOREIGN KEY (citation_id) REFERENCES archive(archive_id)
 );
+
+CREATE TABLE favorite (
+    favorite_id INTEGER PRIMARY KEY,
+    usuario_id INTEGER,
+    archive_id INTEGER,
+    elemento_id INTEGER,
+    FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id),
+    FOREIGN KEY (archive_id) REFERENCES archive_id(archive_id),
+    FOREIGN KEY (elemento_id) REFERENCES elemento(elemento_id)
+)
