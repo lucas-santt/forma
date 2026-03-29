@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forma</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='style/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='style/interactive.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='style/home.css') }}">
+</head>
+<body>
+    <canvas id="bg-canvas">
+        <p>Your browser does not support WebGL 2.0.</p>
+    </canvas>
+    <header>
+        <div id="header-left">
+            <p id="logo-text" style="margin-right: 30px;">FORMA</p>
+            <p style="margin-right: 30px;">Discover</p>
+            <p>Careers</p>
+        </div>
+        <div>
+            <p style="color: white;position:absolute; left:50%;"></p>
+        </div>
+        <div id="header-right">
+            <div class="liquid-glass" style="margin-right: 10px;">Log in</div>
+            <div class="liquid-glass liquid-glass--white">Sign up</div>
+        </div>
+    </header>
+    <main>
+        <div id="centerpiece">
+            <h1>Your space<br>for inspiration</h1>
+            <h2>Discover, search, and save what's next</h2>
+            <div class="liquid-glass liquid-glass--white" style="padding: 1rem 5.5rem;">Sign up</div>
+        </div>
+    </main>
+    <footer></footer>
+    <script src="static/scripts/scene-classes.js"></script>
+    <script src="static/scripts/home-scene-config.js"></script>
+    <script src="static/scripts/home-renderer.js"></script>
+</body>
+</html>
