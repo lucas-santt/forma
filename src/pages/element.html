@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forma</title>
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.js" integrity="sha384-ezjq8118wdwdRMj+nX4bevEi+cDLTbhLAeFF688VK8tPDGeLUe0WoY2MZtSla72F" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+
+    <link rel="stylesheet" href="../static/style/base.css">
+    <link rel="stylesheet" href="../static/style/interactive.css">
+    <link rel="stylesheet" href="../static/style/home.css">
+    <link rel="stylesheet" href="../static/style/element.css">
+
+    <script src="../static/scripts/main.js"></script>
+    <script src="../static/scripts/home/script.js"></script>
+</head>
+<body>
+
+    <header>
+        <div id="header-left">
+            <a href="/">
+            <div id="logo-wrapper" class="right--medium-large">
+                <p class="logo-text logo-text--full">FORMA</p>
+                <p class="logo-text logo-text--short">FMA</p>
+            </div>
+            </a>
+            <div id="header-left-links">
+            </div>
+        </div>
+
+        <div>
+            <p style="color: white;position:absolute; left:50%;"></p>
+        </div>
+
+        <div id="header-right">
+            <div class="liquid-glass--btn btn--white" onclick="startCreating()">Create</div>
+            <div id="menu-btn" class="icons" onclick="toggleDropDownMenu()"><p>menu</p></div>
+            <div id="dropdown-menu">
+                <a href="/favorites">
+                <div class="dropdown-item">
+                    <p>Profile</p>
+                </div>
+                </a>
+                <div class="dropdown-item" onclick="logout()">
+                    <p>Log out</p>
+                    <p class="icons">logout</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="element-wrapper">
+            <img src="../static/img/img_db/{{ element.img_name }}">
+        </div>
+        <div id="element-info">
+            <p class="title serifed">{{ element.title }}</p>
+            <p class="serifed">{{ element.description }}</p>
+            <p class="subtitle serifed"> Posted by {{ poster.username }}</p>
+            {% if favorited %}
+            <button id="btn--{{ element.id }}" class="liquid-glass--btn btn--gray" onclick="toggleFavorite({{ element.id }}, this)">Unsave</button>
+            {% else %}
+            <button id="btn--{{ element.id }}" class="liquid-glass--btn btn--white" onclick="toggleFavorite({{ element.id }}, this)">Save</button>
+            {% endif %}
+            {% if poster.id == session.id %}
+                <button class="liquid-glass--btn btn--gray" style="margin-top: 2vh;" onclick="deleteElement({{ element.id }})">Delete</button>
+            {% endif %}
+
+        </div>
+
+        
+    </main>
+
+</body>
+</html>

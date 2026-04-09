@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="static/style/partials/image_list.css">
+
+<div class="grid">
+    <div class="grid-sizer"></div>
+    <div class="gutter-sizer"></div>
+
+    {% for img in imagens %}
+    {% if loop.last %}
+    <div class="grid-item" 
+            hx-get="/RecentFavorites?quant=20&page=0" 
+            hx-trigger="revealed" 
+            hx-swap="afterend">
+    {% else %}
+    <a href="/e/{{ img.id }}">
+    <div class="grid-item">
+    {% endif %}
+
+        <img class="img-item" src="static/img/img_db/{{ img.img_name }}">
+        <div class="img-hover-wrapper">
+            {% if img.id in favorited_ids %}
+                <button id="btn--{{ img.id }}" class="liquid-glass--btn btn--gray" onclick="toggleFavorite({{ img.id }}, this)">Unsave</button>
+            {% else %}
+                <button id="btn--{{ img.id }}" class="liquid-glass--btn btn--white" onclick="toggleFavorite({{ img.id }}, this)">Save</button>
+            {% endif %}
+        </div>
+    </div>
+    </a>
+    {% endfor %}
+</div>

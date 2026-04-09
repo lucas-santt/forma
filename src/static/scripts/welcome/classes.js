@@ -14,7 +14,7 @@ class Vector3 {
 }
 
 class ImageObject {
-    constructor(src, position, scale, borderRadius = 0.05, parallaxStrength = 0.08, lerpSpeed = 0.04) {
+    constructor(src, position, scale, borderRadius = 0.04, parallaxStrength = 0.08, lerpSpeed = 0.04) {
         this.src = src;
         this.position = position;
         this.scale = scale;
@@ -60,6 +60,9 @@ class ImageObject {
         gl.activeTexture(gl.TEXTURE0);
         gl.bindTexture(gl.TEXTURE_2D, this._tex);
         gl.uniform1i(gl.getUniformLocation(program, "uTexture"), 0);
+
+        const uTime = gl.getUniformLocation(program, "uTime");
+        gl.uniform1f(uTime, performance.now() / 1000);
 
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
     }
@@ -123,6 +126,4 @@ class ImageObject {
 
         return vao;
     }
-
-
 }

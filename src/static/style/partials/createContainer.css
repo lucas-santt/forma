@@ -1,0 +1,109 @@
+:root {
+    --center-container-opacity: 0.15;
+    --center-transfition-dur: 0.2s;
+
+    --create-window-width: 500px;
+    --create-window-height: 300px;
+    --create-window-padding: 10px;
+    --create-window-border-radius: 20px;
+    --create-window-bg-color: #323131;
+}
+
+#create-wrapper {
+    position:fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+    background-color: rgb( 0 0 0 / 0 );
+
+    pointer-events: none;
+    transition: background-color var(--center-transfition-dur) ease, opacity var(--center-transfition-dur) ease;
+}
+
+#create-wrapper.active {
+    opacity: 1;
+    background-color: rgb(0 0 0 / var(--center-container-opacity));
+    pointer-events: auto;
+}
+
+#create-container {
+    display: flex;
+    flex-direction: column;
+
+    width: var(--create-window-width);
+    height: var(--create-window-height);
+    box-sizing: border-box;
+
+    padding: var(--create-window-padding);
+    border-radius: var(--create-window-border-radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+    background-color: var(--create-window-bg-color);
+
+    transform: scale(0.8);
+    opacity: 0;
+    transition: transform var(--center-transfition-dur) ease, opacity var(--center-transfition-dur) ease;
+}
+
+#create-wrapper.active #create-container {
+    transform: scale(1);
+    opacity: 1;
+}
+
+#upload-btn-wrapper {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+#create-info-container {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 0 var(--spacing-medium) 0 var(--spacing-medium);
+
+    font-family: var(--font-family-taviraj);
+}
+
+#create-info-container p:first-of-type{
+    margin-bottom: var(--spacing-smaller);
+}
+
+.description-wrapper {
+    flex: 1;
+    overflow-y: auto;
+
+    height: auto;
+
+    margin-top: var(--spacing-small);
+}
+
+.submit-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    margin-top: var(--spacing-medium);
+    margin-bottom: var(--spacing-small);
+}
+
+.submit-btn-wrapper div:first-of-type {
+    width: 50%;
+}
+
+@media (max-width: 500px) {
+    :root {
+        --create-window-width: 90%;
+    }
+}

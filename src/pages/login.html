@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forma</title>
+    
+    <style>
+        html {
+            background-color: #0d0d0d;
+        }
+
+        body {
+            display: none;
+        }
+    </style>
+    
+    <link rel="prefetch" href="static/videos/output.8-bq0.mp4">
+    <link rel="prefetch" href="static/style/login.css" as="style">
+
+    <link rel="stylesheet" href="static/style/base.css">
+    <link rel="stylesheet" href="static/style/interactive.css">
+    <link rel="stylesheet" href="static/style/login.css">
+
+    <script src="static/scripts/login/script.js"></script>
+</head>
+<body>
+    <video id="bg-video" 
+           src="static/videos/output.8-bq0.mp4#t=0.68" 
+           autoplay="" 
+           loop="" 
+           playsinline="" 
+           disablePictureInPicture muted>
+    </video>
+    <div id="noise-wrapper"></div>
+    <header style="background-color: transparent;">
+        <div id="header-left">
+            <a href="/">
+            <div id="logo-wrapper">
+                <p class="logo-text logo-text--full">FORMA</p>
+                <p class="logo-text logo-text--short">FMA</p>
+            </div>
+            </a>
+        </div>
+    </header>
+    <main>
+        <div id="login-container" class="liquid-glass">
+            <div id="login-header" class="serifed">
+                <p>Welcome to Forma</p>
+                {% if type == 'signup' %}
+                    <p class="subtitle">Begin by creating an account</p>
+                {% else %}
+                    <p class="subtitle">Sign in to your account</p>
+                {% endif %}
+            </div>
+
+            <form id="login-form">
+                <div class="input-wrapper">
+                    <input id="username-input" type="username" name="username" placeholder=" "required>
+                    <label for="username">Username</label>
+                </div>
+                <div class="input-wrapper">
+                    <input id="password-input" type="password" name="password" placeholder=" " required>
+                    <label for="password">Password</label>
+                </div>
+            </form>
+            <div id="signin-btn-wrapper">
+                {% if type == 'signup' %}
+                    <div class="liquid-glass--btn btn--white btn--large" onclick="SignUp()">Sign Up</div>
+                {% else %}
+                    <div class="liquid-glass--btn btn--white btn--large" onclick="SignIn()">Sign In</div>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+</body>
+</html>

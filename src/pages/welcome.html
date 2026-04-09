@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forma</title>
+    <link rel="stylesheet" href="static/style/base.css">
+    <link rel="stylesheet" href="static/style/interactive.css">
+    <link rel="stylesheet" href="static/style/welcome.css">
+</head>
+<body>
+    <canvas id="bg-canvas">
+        <p>Your browser does not support WebGL 2.0.</p>
+    </canvas>
+
+    <header style="background-color: transparent;">
+        <div id="header-left">
+            <div id="logo-wrapper" class="right--medium-large">
+                <p class="logo-text logo-text--full">FORMA</p>
+                <p class="logo-text logo-text--short">FMA</p>
+            </div>
+            <div id="header-left-links">
+            </div>
+        </div>
+
+        <div>
+            <p style="color: white;position:absolute; left:50%;"></p>
+        </div>
+
+        <div id="header-right">
+            <a href="/login">
+                <div class="liquid-glass--btn" style="margin-right: 10px;">Log in</div>
+            </a>
+            <a href="/signup">
+                <div class="liquid-glass--btn btn--white">Sign up</div>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div id="centerpiece">
+            <h1>Your space<br>for inspiration</h1>
+            <h2>Discover, search, and save what's next</h2>
+            <a href="/signup"><div class="liquid-glass--btn btn--white btn--large">Sign Up</div></a>
+        </div>
+    </main>
+    
+    <script src="static/scripts/welcome/renderer.js"></script>
+    <script src="static/scripts/welcome/classes.js"></script>
+    <script src="static/scripts/welcome/scene-config.js"></script>
+</body>
+</html>

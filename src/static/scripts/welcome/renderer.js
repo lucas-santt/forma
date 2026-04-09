@@ -62,8 +62,19 @@ function buildProjectionMatrix() {
 }
 
 function render() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const dpr = window.devicePixelRatio || 1;
+
+    const cssWidth = window.innerWidth;
+    const cssHeight = window.innerHeight;
+
+    // Display size
+    canvas.style.width = cssWidth + "px";
+    canvas.style.height = cssHeight + "px";
+
+    // Actual size in memory
+    canvas.width = Math.round(cssWidth * dpr);
+    canvas.height = Math.round(cssHeight * dpr);
+    
     gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 
     gl.clearColor(...BACKGROUND_COLOR);
@@ -99,6 +110,7 @@ precision highp float;
 
 uniform sampler2D uTexture;
 uniform float uRadius;
+
 in vec2 vTexCoord;
 out vec4 outColor;
 

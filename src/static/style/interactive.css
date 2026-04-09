@@ -1,23 +1,38 @@
 /*
-  Recreation of Apple's Liquid Glass effect using HTML and CSS combined with a SVG filter.
-  Based on https://github.com/lucasromerodb/liquid-glass-effect-macos but tweaked after my liking.
+  Based after https://codepen.io/alexerlandsson/pen/GgJQEKE
+  but heavily tweaked by to fit my needs and design.
 */
+:root {
+  --upload-btn-border-radius: 20px;
 
-.liquid-glass {
+  --input-height: 4vh;
+  --input-border-radius: 10vh;
+  --input-color-alpha: 30%;
+
+  --textarea-border-radius: 3vh;
+}
+
+.liquid-glass--btn {
+  position: relative;
+
   width: auto;
   height: auto;
-  position: relative;
-  padding: 0.5rem 1rem;
+  
+  padding: var(--padding-small) var(--padding-normal);
+  
   border-radius: 100vmax;
   isolation: isolate;
+  
+  text-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  font-family: var(--font-family-nunito);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  
   background-color: rgb(255 255 255 / 10%);
   color: rgb(255 255 255 / 90%);
-  text-shadow: 0 2px 4px rgb(0 0 0 / 10%);
-  font-family: "Nunito Sans", "Roboto", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
   box-shadow: 0 6px 6px rgb(0 0 0 / 20%), 0 0 20px rgb(0 0 0 / 10%);
-  text-align: center;
+  
   user-select: none;
   cursor: pointer;
   
@@ -37,7 +52,7 @@
   
 }
 
-.liquid-glass--white{
+.btn--white{
     background-color: rgb(255 255 255 / 100%);
     color: black;
 
@@ -45,3 +60,105 @@
         backdrop-filter: none;
     }
 }
+
+.btn--gray {
+  background-color: #323131;
+  color: rgb(255 255 255 / 0.75);
+
+  &::before {
+    backdrop-filter: none;
+  }
+}
+
+.btn--large {
+  font-size: var(--font-size-small-nr);
+  font-weight: var(--font-weight-semi-bold);
+  padding: 
+    clamp(var(--padding-small), 2.5vw, calc(var(--padding-medium)) * 0.9)
+    clamp(var(--padding-medium), 18vw, calc(var(--padding-large) * 1.15));
+}
+
+.upload-btn {
+  width: 100%;
+  height: 100%;
+
+  border-radius: var(--upload-btn-border-radius);
+
+  outline: none;
+  border: none;
+
+  background-color: #141414;
+  color: rgb(255 255 255 / var(--text-opacity));
+
+  cursor: pointer;
+}
+
+.upload-btn * {
+  margin: 0;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+input, textarea {
+    height: var(--input-height);
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 20px;
+    padding-left: 25px;
+    padding-top: 30px;
+    
+    border-radius: var(--input-border-radius);
+    border: none;
+    box-shadow: none;
+
+    outline: rgb(36 36 36) solid 1px;
+    background-color: #1d1d1d;
+
+    color: rgb(255 255 255 / var(--text-opacity));
+}
+
+textarea {
+  height: 100%;
+  box-sizing: border-box;
+  
+  padding-top: 25px;
+  border-radius: var(--textarea-border-radius);
+  
+  resize: none;
+}
+
+label {
+  position: absolute;
+  top: 18px;
+  left: 25px;
+
+  font-size: var(--font-size-smaller-nr);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-subtitle);
+
+  font-family: var(--font-family-nunito);
+
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+
+  pointer-events: none;
+}
+
+
+input:focus + label,
+input:not(:placeholder-shown) + label,
+textarea:focus + label,
+textarea:not(:placeholder-shown) + label {
+  top: 6px;
+  left: 25px;
+
+  font-size: 0.7rem;
+}
+

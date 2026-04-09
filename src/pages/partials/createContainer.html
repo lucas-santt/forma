@@ -1,0 +1,27 @@
+<script src="static/scripts/partials/createContainer.js"></script>
+<link rel="stylesheet" href="static/style/partials/createContainer.css">
+
+<div id="create-wrapper" onclick="createWrapperToggle()">
+    <div id="create-container" onclick="event.stopPropagation()">
+        <div id="upload-btn-wrapper">
+            <button class="upload-btn" onclick="getImageUrl()">
+                <p class="material-symbols-outlined">upload</p>
+                <p>Browse files</p>
+            </button>
+        </div>
+        <div id="create-info-container">
+            <p class="title">Element info.</p>
+            <div class="input-wrapper">
+                <input id="title-input" type="title" name="title" placeholder=" " required>
+                <label for="title">Title*</label>
+            </div>
+            <div class="input-wrapper description-wrapper">
+                <textarea id="description-input" type="description" name="description" placeholder=""></textarea>
+                <label for="description" >Description</label>
+            </div>
+            <div class="submit-btn-wrapper">
+                <div class="liquid-glass--btn btn--white" onclick="uploadElement()">Create Element</div>
+            </div>
+        </div>
+    </div>
+</div>
