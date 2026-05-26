@@ -13,7 +13,7 @@ class Vector3 {
     }
 }
 
-class ImageObject {
+class ImageObject { 
     constructor(src, position, scale, borderRadius = 0.04, parallaxStrength = 0.08, lerpSpeed = 0.04) {
         this.src = src;
         this.position = position;
