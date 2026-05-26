@@ -6,6 +6,28 @@ Collect and manage your inspirations and content that is important to you. Image
 
 Inspired by [cosmos.so][cosmos] and [are.na][arena]
 
+## Running
+
+First off, create a python enviroment
+
+`python3 -m venv .venv`
+
+and then, activate it. For unix:
+
+`source .venv/bin/activate`
+
+then, install the requirements
+
+`pip install -r requirements.txt`
+
+After that, we just need to initialize the server!
+
+`cd src` (for unix)
+
+`fastapi dev`
+
+and, by default, you 8000 port will be hosting forma!
+
 ## Up-Coming Features
 
 - User Login
